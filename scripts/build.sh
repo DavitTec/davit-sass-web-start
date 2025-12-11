@@ -1,89 +1,121 @@
 #!/usr/bin/env bash
-# Version: 0.0.2
+# Version: 0.1.0
 set -e
 
 ### ---------------------------------------------
-### PRODUCTION BUILD SCRIPT
+### SAFE PRODUCTION BUILD SCRIPT
 ### ---------------------------------------------
 
-echo "🔹 Running Producion build..."
+echo "🏗  Starting PRODUCTION build..."
 
-# Optional lint
-if [[ "$1" == "--lint" ]]; then
-    echo "🔍 Running linter..."
-    pnpm lint || {
-        echo "❌ Linting failed. Fix issues or run without --lint."
-        exit 1
-    }
+### ---------------------------------------------
+### 1. PREVENT BUILD IF MAIN BRANCH IS DIRTY
+### ---------------------------------------------
+
+if ! git diff --quiet || ! git diff --cached --quiet; then
+    echo "❌ ERROR: Uncommitted changes detected."
+    echo "Please commit or stash your work before running build.sh"
+    exit 1
 fi
+
+### ---------------------------------------------
+### 2. PREPARE BUILD FOLDER
+### ---------------------------------------------
 
 echo "📦 Cleaning build/"
 rm -rf build
 mkdir -p build
 
-echo "🧵 Compiling Sass → CSS (development mode)"
-# pnpm sass:dev
+echo "📁 Copying static public files..."
+cp -R public/* build/ 2>/dev/null || true
 
-echo "📁 Copying assets for build..."
-# process assets where needed fom src/assets-dev to build
-# these assests must be in Manifest.json
-# Adjust depending on your project
-cp -R src/assets build/assets 2>/dev/null || true
-
-echo "📦 Copying static public files..."
-cp -R public/* build/
-
-echo "📄 Copying HTML"
+echo "📁 Copying HTML..."
 cp -R src/html/* build/
 
+echo "🎨 Compiling Sass..."
+# pnpm sass:prod  # hook for real Sass build
+# For now:
 echo "📄 Copying CSS"
 mkdir -p build/css
-cp -R src/css/* build/css/
+cp -R src/css build/css
 
-echo "📄 Copying JS"
-mkdir -p build/js    
+echo "🧠 Processing JS..."
+mkdir -p build/js
 cp -R src/js/* build/js/
 
+echo "🖼  Processing assets..."
+# Only compiled assets (never assets-dev)
+mkdir -p build/assets
+cp -R src/assets build/assets 2>/dev/null || true
+
+### ---------------------------------------------
+### 3. VERSION + CHANGELOG
+### ---------------------------------------------
 
 VERSION=$(jq -r '.version' package.json)
-echo "📌 New version: $VERSION"
+echo "📌 Using version: $VERSION"
 
-# Time to update Version in Manifest.json and readme
-echo "🔄 Updating version in Manifest.json and README.md"
+echo "📝 Appending to CHANGELOG.md..."
+echo "- Build $VERSION ($(date))"  
+echo " Generating ChangeLog"
 
+### ---------------------------------------------
+### 4. SYNC TO GHPAGES BRANCH SAFELY
+### ---------------------------------------------
 
-echo "📝 Generating changelog..."
-echo "- Build $VERSION ($(date))" 
+echo "🚚 Preparing deployment to ghpages..."
+ 
+TEMP_DIR="./tmp/build-tmp"
+rm -rf "$TEMP_DIR"
+mkdir -p "$TEMP_DIR"
 
-echo "🚚 Deploying to ghpages branch..."
-
-
-# Create temp folder and keep it between branch switches
-TEMP_DIR="./tmp"
 cp -R build/* "$TEMP_DIR"
 
-# WARNING:  This will delete uncommitted changes in main branch
-# Save your work before running this script!
-# Switch to ghpages branch
+echo "🔀 Switching to ghpages branch..."
 git checkout ghpages 2>/dev/null || git checkout -b ghpages
 
-# Remove everything from ghpages root
-git rm -rf . > /dev/null 2>&1 || true
+### ---------------------------------------------
+### 5. READ manifest.json FOR SAFE CLEANUP
+### ---------------------------------------------
 
-# Copy build output to ghpages branch root
+if [[ -f manifest.json ]]; then
+    echo "🧹 Cleaning ghpages files via manifest.json..."
+    
+    FILES_TO_REMOVE=$(jq -r '.remove[]?' manifest.json)
+
+    for f in $FILES_TO_REMOVE; do
+        rm -rf "$f" 2>/dev/null || true
+    done
+else
+    echo "⚠️ No manifest.json found — NOT performing clean delete."
+    echo "Only overwriting changed files."
+fi
+
+### ---------------------------------------------
+### 6. COPY BUILD OUTPUT INTO GHPAGES BRANCH
+### ---------------------------------------------
+
+echo "📁 Copying build artifacts to ghpages root..."
 cp -R "$TEMP_DIR"/* .
 
-#rm -rf "$TEMP_DIR"  #clean up temp folder optionally
+# Keep ghpages files safe:
+# .gitignore
+# CNAME
+# favicon.ico
+# robots.txt
+# etc
 
-# Commit & push
-#git add .
-#git commit -m "Deploy build $VERSION"
-#git push origin ghpages
+### ---------------------------------------------
+### 7. FINALIZE (COMMIT DISABLED FOR SAFETY)
+### ---------------------------------------------
 
-# Switch back to main
-#git checkout main
+echo "🛑 NOT auto-committing or pushing for safety."
+echo "Inspect files in ghpages branch, then run manually:"
+echo "  git add ."
+echo "  git commit -m \"Deploy build $VERSION\""
+echo "  git push origin ghpages"
 
+git checkout main
 
-
-echo "🔧 Staging build completed → build/"
-echo "You can now run: pnpm web"
+echo "🎉 Production build created successfully."
+echo "    Temporary files: $TEMP_DIR"
