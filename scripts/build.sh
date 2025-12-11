@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Version: 0.1.0
+# Version: 0.1.1
 set -e
 
 ### ---------------------------------------------
@@ -37,7 +37,7 @@ echo "🎨 Compiling Sass..."
 # For now:
 echo "📄 Copying CSS"
 mkdir -p build/css
-cp -R src/css build/css
+cp -R src/css/* build/css/
 
 echo "🧠 Processing JS..."
 mkdir -p build/js
@@ -46,7 +46,7 @@ cp -R src/js/* build/js/
 echo "🖼  Processing assets..."
 # Only compiled assets (never assets-dev)
 mkdir -p build/assets
-cp -R src/assets build/assets 2>/dev/null || true
+cp -R src/assets/* build/assets/ 2>/dev/null || true
 
 ### ---------------------------------------------
 ### 3. VERSION + CHANGELOG
@@ -78,7 +78,7 @@ git checkout ghpages 2>/dev/null || git checkout -b ghpages
 ### 5. READ manifest.json FOR SAFE CLEANUP
 ### ---------------------------------------------
 
-if [[ -f manifest.json ]]; then
+if [[ -f "./manifest.json" ]]; then
     echo "🧹 Cleaning ghpages files via manifest.json..."
     
     FILES_TO_REMOVE=$(jq -r '.remove[]?' manifest.json)
