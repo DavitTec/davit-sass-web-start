@@ -78,7 +78,7 @@ git checkout ghpages 2>/dev/null || git checkout -b ghpages
 ### 5. READ manifest.json FOR SAFE CLEANUP
 ### ---------------------------------------------
 
-if [[ -f "./manifest.json" ]]; then
+if [ -f "./manifest.json" ]; then
     if jq empty ./manifest.json 2>/dev/null; then
         echo "🧹 Cleaning ghpages files via manifest.json..."
         
