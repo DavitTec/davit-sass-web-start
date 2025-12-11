@@ -1,0 +1,138 @@
+{
+  "$schema": "https://example.com/davit-sass-web-start/manifest.schema.json",
+
+  "project": {
+    "name": "davit-sass-web-start",
+    "description": "Starter template for HTML + SASS + build pipeline",
+    "author": "DavitTec",
+    "license": "MIT",
+
+    // Sync with package.json version during build
+    "version": "0.0.1",
+
+    // Used in sitemap/robots/html generation
+    "primaryDomain": "https://davit.ie",
+    "previewDomain": "https://davittec.github.io/davit-sass-web-start",
+    "assetDomain": "https://assets.davit.ie"
+  },
+
+  "build": {
+    // Directories used in project
+    "paths": {
+      "source": {
+        "html": "src/html",
+        "sass": "src/sass",
+        "css": "src/css",
+        "js": "src/js",
+        "assetsDev": "src/assets-dev",
+        "public": "public"
+      },
+      "output": {
+        "dist": "dist",
+        "stage": "stage",
+        "build": "build",
+        "archive": "archive"
+      }
+    },
+
+    // Files/folders copied (or transformed) to /build during production build
+    "include": [
+      "src/html",
+      "src/css",
+      "src/js",
+      "public",
+      "src/assets"
+    ],
+
+    // Files/folders excluded from build output
+    "exclude": [
+      "**/*.map",
+      "**/*.psd",
+      "**/*.xcf",
+      "src/assets-dev/**",
+      "node_modules/**",
+      ".env",
+      ".vscode/**"
+    ],
+
+    // Rules for pushing to ghpages
+    "ghpages": {
+      // Files allowed to be overwritten during deployment
+      "overwrite": [
+        "index.html",
+        "assets/**",
+        "css/**",
+        "js/**"
+      ],
+
+      // Files that MUST remain untouched in ghpages branch
+      "preserve": [
+        ".gitignore",
+        "CNAME",
+        "README.md"
+      ]
+    }
+  },
+
+  "assets": {
+    // Local → remote mapping
+    "publish": [
+      {
+        "source": "src/assets/favicon",
+        "target": "favicon",
+        "optimize": true
+      },
+      {
+        "source": "src/assets/images",
+        "target": "img",
+        "optimize": true
+      }
+    ],
+
+    // Used by automatic resizing/optimization pipelines
+    "optimisation": {
+      "image": {
+        "maxWidth": 1920,
+        "quality": 0.85,
+        "formats": ["webp", "avif", "jpg"]
+      },
+      "favicon": {
+        "sizes": [16, 32, 48, 64, 128, 256]
+      }
+    }
+  },
+
+  "seo": {
+    // Build script generates these files automatically
+    "generate": {
+      "sitemap": true,
+      "robots": true,
+      "humans": true,
+      "htaccess": true
+    },
+    "pages": [
+      {
+        "loc": "/",
+        "priority": 1.0,
+        "changefreq": "daily"
+      },
+      {
+        "loc": "/about/",
+        "priority": 0.7,
+        "changefreq": "monthly"
+      }
+    ],
+    "robots": {
+      "allow": ["/"],
+      "disallow": ["/private/", "/tmp/"],
+      "sitemap": true
+    }
+  },
+
+  "versioning": {
+    "semantic": true,
+    "autoIncrement": "patch",
+    "changelogFile": "CHANGELOG.md",
+    "includeDate": true
+  }
+}
