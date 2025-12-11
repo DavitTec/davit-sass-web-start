@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Version: 0.1.1
+# Version: 0.1.2
 set -e
 
 ### ---------------------------------------------
@@ -79,13 +79,17 @@ git checkout ghpages 2>/dev/null || git checkout -b ghpages
 ### ---------------------------------------------
 
 if [[ -f "./manifest.json" ]]; then
-    echo "🧹 Cleaning ghpages files via manifest.json..."
-    
-    FILES_TO_REMOVE=$(jq -r '.remove[]?' manifest.json)
+    if jq empty ./manifest.json 2>/dev/null; then
+        echo "🧹 Cleaning ghpages files via manifest.json..."
+        
+        FILES_TO_REMOVE=$(jq -r '.remove[]? // empty' manifest.json)
 
-    for f in $FILES_TO_REMOVE; do
-        rm -rf "$f" 2>/dev/null || true
-    done
+        for f in $FILES_TO_REMOVE; do
+            rm -rf "$f" 2>/dev/null || true
+        done
+    else
+        echo "❌ ERROR: manifest.json is not valid JSON. Skipping cleanup."
+    fi
 else
     echo "⚠️ No manifest.json found — NOT performing clean delete."
     echo "Only overwriting changed files."
