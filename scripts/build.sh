@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
+# Version: 0.0.2
 set -e
 
 ### ---------------------------------------------
-### STAGE BUILD SCRIPT
+### PRODUCTION BUILD SCRIPT
 ### ---------------------------------------------
 
-echo "🔹 Running staging build..."
+echo "🔹 Running Producion build..."
 
 # Optional lint
 if [[ "$1" == "--lint" ]]; then
@@ -16,19 +17,27 @@ if [[ "$1" == "--lint" ]]; then
     }
 fi
 
-echo "📦 Cleaning dist/"
-rm -rf dist
-mkdir -p dist
+echo "📦 Cleaning build/"
+rm -rf build
+mkdir -p build
 
 echo "🧵 Compiling Sass → CSS (development mode)"
-pnpm sass:dev
+# pnpm sass:dev
 
 echo "📁 Copying assets for staging build..."
 # Adjust depending on your project
-cp -R src/assets dist/assets 2>/dev/null || true
+cp -R src/assets build/assets 2>/dev/null || true
 
 echo "📄 Copying HTML"
-cp -R src/*.html dist/
+cp -R src/html/* build/
 
-echo "🔧 Staging build completed → dist/"
+echo "📄 Copying CSS"
+mkdir -p build/css
+cp -R src/css/* build/css/
+
+echo "📄 Copying JS"
+mkdir -p build/js    
+cp -R src/js/* build/js/
+
+echo "🔧 Staging build completed → build/"
 echo "You can now run: pnpm web"
