@@ -1,5 +1,6 @@
 {
   "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "prettier.enable": true,
   "prettier.singleQuote": false,
   "prettier.tabWidth": 2,
@@ -7,17 +8,26 @@
   "prettier.semi": true,
   "markdown.preview.breaks": true,
   "eslint.enable": true,
-  "eslint.validate": [
-    "javascript",
-    "typescript"
-  ],
+  "eslint.validate": ["javascript", "typescript"],
   "shellcheck.enable": true,
   "shellcheck.useWorkspaceRootAsCwd": true,
   "gitlens.hovers.currentLine.over": "line",
   "debug.node.autoAttach": "on",
-  "tasks.runners": [
-    "pnpm run parallel"
+  "[svg]": {
+    "editor.defaultFormatter": "jock.svg"
+  },
+  "liveServer.settings.root": "/dist",
+  "liveServer.settings.port": 8081,
+  "liveServer.settings.fullReload": false,
+  "liveServer.settings.host": "127.0.0.1",
+  "liveServer.settings.ignoreFiles": [
+    "**/*.map",
+    "**/node_modules/**",
+    "**/.git/**",
+    "**/build/**"
   ],
+  "liveServer.settings.CustomBrowser": "chrome",
+  "tasks.runners": ["pnpm run parallel"],
   "liveSassCompile.settings.formats": [
     {
       "format": "expanded",
