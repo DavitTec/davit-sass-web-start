@@ -61,7 +61,7 @@ main {
   justify-content: center;
   text-align: center;
   height: 70vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("assets/hero.jpg") center/cover no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../assets/hero.jpg") center/cover no-repeat;
 }
 .hero h3 {
   font-size: 3rem;
