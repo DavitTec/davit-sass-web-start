@@ -1,0 +1,29 @@
+extensions:
+  - timonwong.shellcheck
+  - mads-hartmann.bash-ide-vscode
+  - esbenp.prettier-vscode
+  - dbaeumer.vscode-eslint
+  - christian-kohler.npm-intellisense
+  - eamodio.gitlens
+  - mhutchie.git-graph
+  - rogalmic.bash-debug
+  - gruntfuggly.todo-tree
+settings:
+  editor.formatOnSave: true
+  prettier.enable: true
+  eslint.enable: true
+  eslint.validate: ["javascript", "typescript"]
+  shellcheck.enable: true
+  shellcheck.useWorkspaceRootAsCwd: true
+  gitlens.hovers.currentLine.over: "line"
+  debug.node.autoAttach: "on"
+  tasks.runners: ["pnpm run parallel"]
+launch:
+  configurations:
+    - name: Debug vscode.sh
+      type: bashdb
+      request: launch
+      program: "/vscode.sh"
+      cwd: ""
+      terminalKind: integrated
+      args: []

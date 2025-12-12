@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "timonwong.shellcheck",
+    "mads-hartmann.bash-ide-vscode",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "christian-kohler.npm-intellisense",
+    "eamodio.gitlens",
+    "mhutchie.git-graph",
+    "rogalmic.bash-debug",
+    "gruntfuggly.todo-tree"
+  ]
+}

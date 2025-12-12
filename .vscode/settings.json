@@ -1,0 +1,30 @@
+{
+  "editor.formatOnSave": true,
+  "prettier.enable": true,
+  "prettier.singleQuote": false,
+  "prettier.tabWidth": 2,
+  "prettier.useTabs": false,
+  "prettier.semi": true,
+  "markdown.preview.breaks": true,
+  "eslint.enable": true,
+  "eslint.validate": [
+    "javascript",
+    "typescript"
+  ],
+  "shellcheck.enable": true,
+  "shellcheck.useWorkspaceRootAsCwd": true,
+  "gitlens.hovers.currentLine.over": "line",
+  "debug.node.autoAttach": "on",
+  "tasks.runners": [
+    "pnpm run parallel"
+  ],
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "expanded",
+      "extensionName": ".css",
+      "savePath": "/dist/css/",
+      "savePathReplacementPairs": null
+    }
+  ],
+  "liveSassCompile.settings.forceBaseDirectory": "/src/sass"
+}

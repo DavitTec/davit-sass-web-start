@@ -111,11 +111,11 @@ dist
 # DAVIT Gitignore File
 # VSODE
 vscode.sh
-.vscode/
+#.vscode/
 # Config Files
 config.yaml
-settings.json   
-requirements.yaml
+#settings.json   
+.vscode/requirements.sha256 
 # Docs History
 docs/hist/*_hist.md 
 # Temp Files
