@@ -17,7 +17,7 @@
     "editor.defaultFormatter": "jock.svg"
   },
   "liveServer.settings.root": "/dist",
-  "liveServer.settings.port": 8081,
+  "liveServer.settings.port": 8082,
   "liveServer.settings.fullReload": false,
   "liveServer.settings.host": "127.0.0.1",
   "liveServer.settings.ignoreFiles": [
@@ -28,11 +28,13 @@
   ],
   "liveServer.settings.CustomBrowser": "chrome",
   "tasks.runners": ["pnpm run parallel"],
+  "liveSassCompile.settings.autoprefix": [],
+  "liveSassCompile.settings.watchOnLaunch": false,
   "liveSassCompile.settings.formats": [
     {
       "format": "expanded",
       "extensionName": ".css",
-      "savePath": "/dist/css/",
+      "savePath": "~/dist/css",
       "savePathReplacementPairs": null
     }
   ],

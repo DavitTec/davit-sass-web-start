@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
-# Version: 0.0.2
+# stage.sh
+# Version: 0.0.3
 set -e
 
 ### ---------------------------------------------
-### STAGE BUILD SCRIPT
+### STAGE BUILD SCRIPT (Incremental)
 ### ---------------------------------------------
 
 echo "🔹 Running staging build..."
@@ -17,29 +18,28 @@ if [[ "$1" == "--lint" ]]; then
     }
 fi
 
-echo "📦 Cleaning dist/"
-rm -rf dist
+# Ensure dist/ exists
 mkdir -p dist
 
-echo "🧵 Compiling Sass → CSS (development mode)"
-# pnpm sass:dev
+# No full clean: We'll use rsync for incremental updates
 
-echo "📁 Copying assets for staging build..."
-# Adjust depending on your project
-cp -R src/assets dist/assets 2>/dev/null || true
+echo "📁 Syncing assets for staging build..."
+mkdir -p dist/assets
+rsync -a --update src/assets/ dist/assets/
 
-echo "📄 Copying HTML"
-cp -R src/html/* dist/
+echo "📄 Syncing HTML"
+rsync -a --update src/html/ dist/
 
-echo "📄 Copying CSS"
-mkdir -p dist/css
-cp -R src/css/* dist/css/
+echo "📄 Skipping CSS copy (handled by SASS watcher)"
+# Removed: mkdir -p dist/css
+# Removed: cp -R src/css/* dist/css/
+# Or if you still need some static CSS from src/css/, uncomment and use rsync:
+# mkdir -p dist/css
+# rsync -a --update src/css/ dist/css/
 
-echo "📄 Copying JS"
-mkdir -p dist/js    
-cp -R src/js/* dist/js/
+echo "📄 Syncing JS"
+mkdir -p dist/js
+rsync -a --update src/js/ dist/js/
 
-
-
-echo "🔧 Staging build completed → dist/"
-echo "You can now run: pnpm web"
+echo "🔧 Staging build completed → dist/ (incremental sync)"
+echo "You can now run: pnpm web (if not using dev mode)"

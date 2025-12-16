@@ -8,11 +8,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "web": "pnpm build:dev; live-server --mount=/:./dist --port=8081 --host=127.0.0.1 --open=index.html --watch=./dist",
-    "sass:dev": "sass --watch src/sass/main.sass dist/css/main.css",
+    "sass:dev": "sass --watch src/sass/:dist/css/",
     "sass:prod": "sass --style=compressed src/sass/main.sass build/css/main.min.css",
     "build:dev": "sh ./scripts/stage.sh",
     "build:prod": "sh ./scripts/build.sh",
-    "clean": "rimraf dist stage build"
+    "clean": "rimraf dist stage build",
+    "serve": "live-server --mount=/:./dist --port=8081 --host=127.0.0.1 --open=index.html --watch=./dist",
+    "watch:files": "onchange 'src/**' --exclude 'src/sass/**' -- pnpm build:dev",
+    "dev": "pnpm build:dev && concurrently 'pnpm sass:dev' 'pnpm watch:files' 'pnpm serve'"
   },
   "keywords": [
     "web design",
