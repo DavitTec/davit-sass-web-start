@@ -9,9 +9,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### ⚙️ Miscellaneous Tasks
 
+Changelog update (803b285…)
+
 Update (d620db6…)
 
 ### 🐛 Bug Fixes
+
+Build.sh (4b1c289…)
+
+Clog (4987755…)
+
+Error in build (b25f9f7…)
+
+Build with changelog (dda9b99…)
+
+Sass compile (50c6c9b…)
+
+With sass:prod (0c7977c…)
 
 Add deploy script (2cb3588…)
 
