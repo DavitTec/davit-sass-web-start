@@ -36,7 +36,7 @@ cp -R src/html/* build/
 echo "🎨 Compiling Sass..."
 pnpm sass:prod  # hook for real Sass build
 # For now:
-echo "📄 Copying CSS"
+#echo "📄 Copying CSS"
 #mkdir -p build/css
 #cp -R src/css/* build/css/
 
