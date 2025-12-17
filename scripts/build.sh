@@ -59,4 +59,4 @@ echo "- Build $$ VERSION ( $$(date))" #>> CHANGELOG.md
 echo " Generating ChangeLog"  # Add more details if needed
 
 echo "🎉 Production build created successfully in ./build/."
-echo "    To deploy: Run 'pnpm deploy'"
+echo "    To deploy: Run 'pnpm run deploy'"
