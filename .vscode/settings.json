@@ -6,6 +6,7 @@
   "prettier.tabWidth": 2,
   "prettier.useTabs": false,
   "prettier.semi": true,
+  "editor.insertSpaces": true,
   "markdown.preview.breaks": true,
   "eslint.enable": true,
   "eslint.validate": ["javascript", "typescript"],
