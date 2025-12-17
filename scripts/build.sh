@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# Version: 0.1.2
+# build.sh
+# Version: 0.1.3
 set -e
 
 ### ---------------------------------------------
@@ -33,11 +34,11 @@ echo "📁 Copying HTML..."
 cp -R src/html/* build/
 
 echo "🎨 Compiling Sass..."
-# pnpm sass:prod  # hook for real Sass build
+pnpm sass:prod  # hook for real Sass build
 # For now:
 echo "📄 Copying CSS"
-mkdir -p build/css
-cp -R src/css/* build/css/
+#mkdir -p build/css
+#cp -R src/css/* build/css/
 
 echo "🧠 Processing JS..."
 mkdir -p build/js
