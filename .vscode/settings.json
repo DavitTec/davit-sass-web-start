@@ -1,0 +1,43 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.enable": true,
+  "prettier.singleQuote": false,
+  "prettier.tabWidth": 2,
+  "prettier.useTabs": false,
+  "prettier.semi": true,
+  "editor.insertSpaces": true,
+  "markdown.preview.breaks": true,
+  "eslint.enable": true,
+  "eslint.validate": ["javascript", "typescript"],
+  "shellcheck.enable": true,
+  "shellcheck.useWorkspaceRootAsCwd": true,
+  "gitlens.hovers.currentLine.over": "line",
+  "debug.node.autoAttach": "on",
+  "[svg]": {
+    "editor.defaultFormatter": "jock.svg"
+  },
+  "liveServer.settings.root": "/dist",
+  "liveServer.settings.port": 8082,
+  "liveServer.settings.fullReload": false,
+  "liveServer.settings.host": "127.0.0.1",
+  "liveServer.settings.ignoreFiles": [
+    "**/*.map",
+    "**/node_modules/**",
+    "**/.git/**",
+    "**/build/**"
+  ],
+  "liveServer.settings.CustomBrowser": "chrome",
+  "tasks.runners": ["pnpm run parallel"],
+  "liveSassCompile.settings.autoprefix": [],
+  "liveSassCompile.settings.watchOnLaunch": false,
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "expanded",
+      "extensionName": ".css",
+      "savePath": "~/dist/css",
+      "savePathReplacementPairs": null
+    }
+  ],
+  "liveSassCompile.settings.forceBaseDirectory": "/src/sass"
+}
