@@ -68,11 +68,11 @@
 
   &__btn 
     opacity: 0
-    color: set-text-color(cfg.$color-secondary)
+    color: cfg.set-text-color(cfg.$color-secondary)
     @include cfg.transition-ease
 
     &:hover 
-      color: set-text-color(set-text-color(cfg.$color-secondary))
+      color: cfg.set-text-color(cfg.set-text-color(cfg.$color-secondary))
 
   .social-icons 
     display: flex
@@ -80,6 +80,11 @@
 
   footer
    transform: rotate(90deg) translate(-3rem, -5rem)
+   color: cfg.set-text-color(cfg.$color-primary-30)
+  
+  &:hover 
+      color: cfg.set-text-color(cfg.set-text-color(cfg.$color-secondary))
+    
           
 
 
