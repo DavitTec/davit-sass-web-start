@@ -2,10 +2,11 @@
 @use "./modules/menu" as menu 
 @use "./modules/projects" as prj 
 @use "./modules/responsive" as res
+@use "./modules/about" as about 
 
 body
   background: cfg.$color-primary
-  color: set-text-color(cfg.$color-primary)
+  color: cfg.set-text-color(cfg.$color-primary)
   height: 100vh
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
   line-height: 1
