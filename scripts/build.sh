@@ -51,6 +51,8 @@ cp -R src/assets/* build/assets/ 2>/dev/null || true
 
 VERSION=$(jq -r '.version' package.json)
 echo "📌 Using version: $VERSION"
+clog # generating changelog
+wait 5
 
 echo "📝 Appending to CHANGELOG.md..."
 echo "- Build $$ VERSION ( $$(date))" >> CHANGELOG.md
