@@ -10,7 +10,7 @@ set -e
 echo "🔹 Running staging build..."
 
 # Optional lint
-if [[ "$1" == "--lint" ]]; then
+if [ "$1" = "--lint" ]; then
     echo "🔍 Running linter..."
     pnpm lint || {
         echo "❌ Linting failed. Fix issues or run without --lint."
