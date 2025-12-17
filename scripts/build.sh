@@ -55,7 +55,7 @@ bash /opt/davit/bin/changelog.sh -l # generating changelog
 wait 5
 
 echo "📝 Appending to CHANGELOG.md..."
-echo "- Build $$ VERSION ( $$(date))" >> CHANGELOG.md
+echo "- Build $$ VERSION ( $$(date))" #>> CHANGELOG.md
 echo " Generating ChangeLog"  # Add more details if needed
 
 echo "🎉 Production build created successfully in ./build/."
