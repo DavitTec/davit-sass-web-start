@@ -23,6 +23,11 @@ mkdir -p dist
 
 # No full clean: We'll use rsync for incremental updates
 
+
+echo "📁 Syncing devtools build..."
+mkdir -p dist/.well-known/
+rsync -a --update src/.well-known/ dist/.well-known/
+
 echo "📁 Syncing assets for staging build..."
 mkdir -p dist/assets
 rsync -a --update src/assets/ dist/assets/
