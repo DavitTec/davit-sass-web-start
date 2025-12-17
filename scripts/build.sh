@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # build.sh
-# Version: 0.1.3
+# Version: 0.1.4
 set -e
 
 ### ---------------------------------------------
@@ -34,11 +34,7 @@ echo "📁 Copying HTML..."
 cp -R src/html/* build/
 
 echo "🎨 Compiling Sass..."
-pnpm sass:prod  # hook for real Sass build
-# For now:
-#echo "📄 Copying CSS"
-#mkdir -p build/css
-#cp -R src/css/* build/css/
+pnpm sass:prod  # Compiles all Sass to compressed CSS in build/css/
 
 echo "🧠 Processing JS..."
 mkdir -p build/js
@@ -50,77 +46,15 @@ mkdir -p build/assets
 cp -R src/assets/* build/assets/ 2>/dev/null || true
 
 ### ---------------------------------------------
-### 3. VERSION + CHANGELOG
+### 3. VERSION + CHANGELOG (OPTIONAL)
 ### ---------------------------------------------
 
 VERSION=$(jq -r '.version' package.json)
 echo "📌 Using version: $VERSION"
 
 echo "📝 Appending to CHANGELOG.md..."
-echo "- Build $VERSION ($(date))"  
-echo " Generating ChangeLog"
+echo "- Build $$ VERSION ( $$(date))" >> CHANGELOG.md
+echo " Generating ChangeLog"  # Add more details if needed
 
-### ---------------------------------------------
-### 4. SYNC TO GHPAGES BRANCH SAFELY
-### ---------------------------------------------
-
-echo "🚚 Preparing deployment to ghpages..."
- 
-TEMP_DIR="./tmp/build-tmp"
-rm -rf "$TEMP_DIR"
-mkdir -p "$TEMP_DIR"
-
-cp -R build/* "$TEMP_DIR"
-
-echo "🔀 Switching to ghpages branch..."
-git checkout ghpages 2>/dev/null || git checkout -b ghpages
-
-### ---------------------------------------------
-### 5. READ manifest.json FOR SAFE CLEANUP
-### ---------------------------------------------
-
-if [ -f "./manifest.json" ]; then
-    if jq empty ./manifest.json 2>/dev/null; then
-        echo "🧹 Cleaning ghpages files via manifest.json..."
-        
-        FILES_TO_REMOVE=$(jq -r '.remove[]? // empty' manifest.json)
-
-        for f in $FILES_TO_REMOVE; do
-            rm -rf "$f" 2>/dev/null || true
-        done
-    else
-        echo "❌ ERROR: manifest.json is not valid JSON. Skipping cleanup."
-    fi
-else
-    echo "⚠️ No manifest.json found — NOT performing clean delete."
-    echo "Only overwriting changed files."
-fi
-
-### ---------------------------------------------
-### 6. COPY BUILD OUTPUT INTO GHPAGES BRANCH
-### ---------------------------------------------
-
-echo "📁 Copying build artifacts to ghpages root..."
-cp -R "$TEMP_DIR"/* .
-
-# Keep ghpages files safe:
-# .gitignore
-# CNAME
-# favicon.ico
-# robots.txt
-# etc
-
-### ---------------------------------------------
-### 7. FINALIZE (COMMIT DISABLED FOR SAFETY)
-### ---------------------------------------------
-
-echo "🛑 NOT auto-committing or pushing for safety."
-echo "Inspect files in ghpages branch, then run manually:"
-echo "  git add ."
-echo "  git commit -m \"Deploy build $VERSION\""
-echo "  git push origin ghpages"
-
-git checkout main
-
-echo "🎉 Production build created successfully."
-echo "    Temporary files: $TEMP_DIR"
+echo "🎉 Production build created successfully in ./build/."
+echo "    To deploy: Run 'pnpm deploy'"
