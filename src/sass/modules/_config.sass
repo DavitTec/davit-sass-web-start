@@ -13,6 +13,11 @@ $color-link-light: #bb0894
 $color-footer: #69075c
 $color-bottom-footer: #a79ca4ff;
 
+
+@use 'sass:color' 
+// Load the built-in color module (no 'as' needed, but you can alias if preferred)
+
+
 * 
   box-sizing: border-box
   margin: 0
@@ -25,32 +30,34 @@ $color-bottom-footer: #a79ca4ff;
 //
 $font-stack: "Inter", Arial, sans-serif
 
-//==========================================
-// FUNCTIONS
-//==========================================
-
-@function set-text-color($color) 
-  @if (lightness($color) > 50%) 
-    @return #000
-  @else 
-    @return #fff    
-
-
-// =========================================
-// MIXINS
-// =========================================
 
 @mixin transition-ease 
   transition: all 0.5s ease-in-out
 
+
+//==========================================
+// FUNCTIONS
+//==========================================
+
+@function set-text-color($color)
+  @if color.lightness($color) > 40%  
+    @return #000
+  @else
+    @return #fff 
+
+
+//=========================================
+// MIXINS
+// =========================================
+
 @mixin media-md
-  @media (max-width: 768px)
+  @media screen and (min-width: 768px)
     @content    
 
 @mixin media-lg  
-  @media (max-width: 1024px)
+  @media screen and (min-width: 1024px)
     @content    
 
 @mixin media-xl 
-  @media (max-width: 1600px)
+  @media screen and (min-width: 1600px)
     @content

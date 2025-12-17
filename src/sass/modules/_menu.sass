@@ -6,13 +6,14 @@
 
 .menu-btn
   position: absolute
-  top: 1.5rem
-  right: 1rem
-  width: 28px
-  height: 20px
-  cursor: pointer
   z-index: 1
-  visibility: visible
+  right: 1rem
+  top: 1rem
+  height: 20px
+  width: 28px
+  cursor: pointer
+  color: set-text-color
+
   @include cgf.transition-ease
   
   &__burger
@@ -21,25 +22,25 @@
     top: 0.5rem
     width: 28px
     height: 3px
-    background: set-text-color(cgf.$color-primary)
+    background: cgf.set-text-color(cgf.$color-primary)
     @include cgf.transition-ease
         
     &::before
       content: ""
       position: absolute
-      top: -0.8rem
+      top: -8px
       width: 28px
       height: 3px
-      background: set-text-color(cgf.$color-primary)  
+      background: cgf.set-text-color(cgf.$color-primary)
       @include cgf.transition-ease      
     
     &::after
       content: ""
       position: absolute
-      top: 0.8rem
-      width: 28px
+      top: 8px
+      width: 20px
       height: 3px
-      background: set-text-color(cgf.$color-primary)
+      background: cgf.set-text-color(cgf.$color-primary)
       @include cgf.transition-ease
     
     &.open
@@ -72,7 +73,8 @@
     height: 100vh
     overflow: hidden
     background: cgf.$color-primary
-    padding-right: 1
+    list-style-type: none
+    padding-right: 1rem
     transform: translateY(-100%)
     @include cgf.transition-ease
 
@@ -80,25 +82,25 @@
       transform: translateY(0)
 
     &__item
-      transform: translateY(100vw)
+      transform: translateX(100vw)
       @include cgf.transition-ease
       
-    &__open
-      transform: translateX(0)
-      color: set-text-color(cgf.$color-primary)
+      &.open
+        transform: translateX(0)
 
-    &.active > a 
-      color: cgf.$color-secondary
+      &.active > a 
+        color: cgf.$color-secondary
 
-  &__link
-    display: inline-block
-    padding: 2rem 0
-    font-size: 2rem
-    text-transform: uppercase
-    @include cgf.transition-ease
+    &__link
+      display: inline-block
+      font-size: 2rem
+      text-transform: uppercase
+      padding: 2rem 0
+      font-weight: 300
+      @include cgf.transition-ease
 
-    &:hover 
-      color: cgf.$color-secondary 
+      &:hover 
+        color: cgf.$color-secondary 
 
 @for $i from 1 through 4
   .menu-nav__item:nth-child(#{$i}) 

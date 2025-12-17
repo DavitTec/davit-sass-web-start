@@ -4,11 +4,10 @@
 @use "./modules/responsive" as res
 
 body
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0
-  height: 100vh
   background: cfg.$color-primary
   color: set-text-color(cfg.$color-primary)
+  height: 100vh
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
   line-height: 1
 
 h1, h2, h3 
@@ -39,6 +38,7 @@ main
     a 
       padding: 0.5rem
       @include cfg.transition-ease
+      
       &:hover 
         color: cfg.$color-secondary 
   
