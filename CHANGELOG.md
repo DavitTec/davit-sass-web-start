@@ -11,6 +11,63 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Update (d620db6…)
 
+### 🐛 Bug Fixes
+
+Add deploy script (2cb3588…)
+
+Index (fdd4204…)
+
+Index (80f9074…)
+
+Build (6f54e26…)
+
+Changes to main.sass (5f0adee…)
+
+Urls (e20e981…)
+
+About page and style (43fea5c…)
+
+Copyright with logo (73f510b…)
+
+Add fa ICONS and fixed hambuger (ee2cc59…)
+
+Issue on live SASS (6b9f850…)
+
+Update stage.sh syntax issue (9d5431d…)
+
+Font Stack (d92412d…)
+
+Main.sass relateive path error (1b1bdd8…)
+
+Main.sass v1 (f0bc194…)
+
+Vscode settings (7fab7d5…)
+
+### 🚀 Features
+
+Add gh-pages (384f505…)
+
+Add and update index page (de828be…)
+
+Add xcf graphic template (9df2fc0…)
+
+Add more hero images (3c9b805…)
+
+Add contact page and style (38555c0…)
+
+Add middleware (00c2681…)
+
+- add: setup.devtools-json.sh
+- add: middleware for browser devtools
+
+Add fontawsome and test page (8c0240f…)
+
+Add sass 2 (954dccc…)
+
+Add sass 1 (c8f9d28…)
+
+Add vscode settings (f8954de…)
+
 ## [0.0.2] - 2025-12-11 ([v0.0.2](https://github.com/DavitTec/davit-sass-web-start/releases/tag/v0.0.2))
 
 ### ⚙️ Miscellaneous Tasks
