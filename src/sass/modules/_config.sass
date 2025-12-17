@@ -1,0 +1,64 @@
+// _config.sass
+// =========================================
+// COLOR PALETTE
+// =========================================
+//
+$color-primary: #610537ff
+$color-primary-30: #ac1037ff
+$color-secondary: #ff652f
+$color-dark: #222
+$color-light: #f5f5f5
+$color-link: #4d0526
+$color-link-light: #bb0894
+$color-footer: #69075c
+$color-bottom-footer: #a79ca4ff
+$color-violet: #2332ff
+
+
+@use 'sass:color' 
+// Load the built-in color module (no 'as' needed, but you can alias if preferred)
+
+
+* 
+  box-sizing: border-box
+  margin: 0
+  padding: 0
+
+
+// =========================================
+// FONT STACK
+// =========================================
+//
+$font-stack: "Inter", Arial, sans-serif
+
+
+@mixin transition-ease 
+  transition: all 0.5s ease-in-out
+
+
+//==========================================
+// FUNCTIONS
+//==========================================
+
+@function set-text-color($color)
+  @if color.lightness($color) > 40%  
+    @return #000
+  @else
+    @return #fff 
+
+
+//=========================================
+// MIXINS
+// =========================================
+
+@mixin media-md
+  @media screen and (min-width: 768px)
+    @content    
+
+@mixin media-lg  
+  @media screen and (min-width: 1024px)
+    @content    
+
+@mixin media-xl 
+  @media screen and (min-width: 1600px)
+    @content
