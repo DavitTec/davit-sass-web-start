@@ -10,7 +10,7 @@
     "web": "pnpm build:dev; live-server --mount=/:./dist --port=8081 --host=127.0.0.1 --open=index.html --watch=./dist",
     "sass:dev": "sass --watch src/sass/:dist/css/",
     "sass:prod": "sass --style=compressed src/sass/:build/css/",
-    "build:dev": "sh ./scripts/stage.sh",
+    "build:dev": "sh ./scripts/dev.sh",
     "build:prod": "pnpm sass:prod && sh ./scripts/build.sh",
     "clean": "rimraf dist stage build",
     "serve": "live-server --mount=/:./dist --port=8081 --host=127.0.0.1 --open=index.html --watch=./dist --middleware=$(pwd)/middleware/middleware.js --verbose",

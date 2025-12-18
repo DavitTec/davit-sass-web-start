@@ -27,12 +27,7 @@
 
   <main>
     {# section class="home" #}
-    {% include "partials/home.njk" %}
-
-
-    {% from "partials/macros.njk" import section, button %}
-    {{ section("about", "Your about text") }}
-    {{ button("Learn More", "/about") }}
+    {% include "partials/projects.njk" %}
   </main>
 
   {% include "partials/footer.njk" %}
