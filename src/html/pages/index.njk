@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DAVIT Technologies</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  {% include "partials/header.njk" %}
+
+  <main>
+    <section class="hero">
+      Hero content here.
+    </section>
+
+    {% from "partials/macros.njk" import section, button %}
+    {{ section("about", "Your about text") }}
+    {{ button("Learn More", "/about") }}
+  </main>
+
+  {% include "partials/footer.njk" %}
+</body>
+</html>

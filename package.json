@@ -16,7 +16,8 @@
     "serve": "live-server --mount=/:./dist --port=8081 --host=127.0.0.1 --open=index.html --watch=./dist --middleware=$(pwd)/middleware/middleware.js --verbose",
     "watch:files": "onchange 'src/**' --exclude 'src/sass/**' -- pnpm build:dev",
     "dev": "pnpm build:dev && concurrently 'pnpm sass:dev' 'pnpm watch:files' 'pnpm serve'",
-    "deploy": "pnpm build:prod && gh-pages -d build"
+    "deploy": "pnpm build:prod && gh-pages -d build",
+    "render": "node scripts/render-nunjucks.js"
   },
   "keywords": [
     "web design",
@@ -29,6 +30,7 @@
   "license": "DAVIT-1.0",
   "packageManager": "pnpm@10.13.1",
   "devDependencies": {
+    "@rse/nunjucks-cli": "^1.6.0",
     "concurrently": "^9.2.1",
     "gh-pages": "^6.3.0",
     "live-server": "^1.2.2",
