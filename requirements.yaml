@@ -8,6 +8,16 @@ extensions:
   - mhutchie.git-graph
   - rogalmic.bash-debug
   - gruntfuggly.todo-tree
+  - ronnidc.nunjucks
+  - vstirbu.vscode-mermaid-preview
+  - bierner.markdown-mermaid
+  - davidanson.vscode-markdownlint
+  - pkief.material-icon-theme
+  - codercoder.codercoder-dark-theme
+  - ritwickdey.liveserver
+  - syler.sass-indented
+  - jock.svg
+  - glenn2223.live-sass
 settings:
   editor.formatOnSave: true
   prettier.enable: true
