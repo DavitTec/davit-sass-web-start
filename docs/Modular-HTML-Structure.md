@@ -284,8 +284,6 @@ src/html/
 
 If Nunjucks feels overkill, stick to copy-paste for now, but templating saves time long-term.
 
-
-
 Run
 
 ```bash
@@ -297,7 +295,47 @@ pnpm run render
 
 
 
-## Step 2: Reorganize Sass with Better Logic and Namespacing
+## Step 2: Modifications for Modular HTML Updates
+
+Modified dev Branch to get to v0.0.4 website as per modular
+
+fix: modified build:dev with dev.sh script in package.json
+
+- add dev.sh: script to build:dev in /dist with render
+- built: modular to replicate current v0.0.4 site in dist/
+-  various njk Pages, and Partials 
+- add header to main.sass for 0.0.4
+
+**Setup (v0.0.4 on dev/modular-HTML-structure1),**
+
+These build on the existing Nunjucks structure: 
+
+- Use macros for loops/params where possible, partials for static reuse. 
+- All changes are tested conceptually—run pnpm run render after updating to generate build/*.html.
+
+Commit these as a new commit: 
+
+```bash
+git add src/html/* && git commit -m "feat: add project loop, extract social-icons component, make title dynamic".
+```
+
+#### 1. Modify pages/projects.njk for Looping Through Projects (1-6)
+
+This is possible with Nunjucks's {% for %} loop. We'll pass an array of project data (e.g., title, image, description) via context in the render script. For simplicity, hardcode the array in the script (later, load from JSON for dev/stage separation).
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Step 3: Reorganize Sass with Better Logic and Namespacing
 
 Your current Sass is basic (`main.sass` importing modules like `_config.sass`, `_menu.sass`). Adopt the **7-1 Pattern** (common for Sass): 7 folders for categories, 1 main file. This groups logically (e.g., components separate from layouts) and uses `@use` with namespaces to avoid conflicts.
 
