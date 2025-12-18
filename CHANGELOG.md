@@ -15,6 +15,8 @@ Update (d620db6…)
 
 ### 🐛 Bug Fixes
 
+Build.sh (2db75b0…)
+
 Build.sh (4b1c289…)
 
 Clog (4987755…)
@@ -57,7 +59,13 @@ Main.sass v1 (f0bc194…)
 
 Vscode settings (7fab7d5…)
 
+### 📚 Documentation
+
+Minor (d062b7b…)
+
 ### 🚀 Features
+
+Add markdownlint ignores (d6b29b2…)
 
 Add gh-pages (384f505…)
 
