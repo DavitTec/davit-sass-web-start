@@ -35,7 +35,7 @@ rsync -a --update src/assets/ dist/assets/
 
 echo "📄 Rendering HTML"
 # TODO: Must add a option to run script as Dev (default), Stage or Build where output are targeted
-node scripts/render-nunjucks.js
+node scripts/render.js
 
 echo "📄 Syncing JS"
 mkdir -p dist/js
