@@ -4,24 +4,28 @@
 import nunjucks from "nunjucks";
 import fs from "fs";
 import path from "path";
-import metadata from "../tests/data/metadata.json" with { type: "json" };
+import metadata from "../data/metadata.json" with { type: "json" };
 
-const inputDir = "tests/test1";
+const inputDir = "src/njk";
 
-const outputDir = "tests/test1/build";
-const outputFile = path.join(outputDir, "index.html");
-
+const outputDir = "build";
+const outputFile = path.join(outputDir, "test1.html");
 
 // Ensure outputDir exists
+if (!fs.existsSync(outputDir)) {
+  fs.mkdirSync(outputDir, { recursive: true });
+}
+
+// Ensure exists
 if (fs.existsSync(outputFile) && fs.lstatSync(outputFile).isDirectory()) {
-  throw new Error("index.html is a directory, expected a file");
+  throw new Error("test1.html is a directory, expected a file");
 }
 
 nunjucks.configure(inputDir, { autoescape: true });
 
 // Give it a template in a string form and JS Object with info
 
-let htmlStr = nunjucks.render("index.njk", {
+let htmlStr = nunjucks.render("test1.njk", {
   metadata,
 });
 
