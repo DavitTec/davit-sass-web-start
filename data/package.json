@@ -1,0 +1,14 @@
+{
+  "package": {
+    "name": "davit-sass-web-start",
+    "domain": "davit"
+  },
+  "publisher": {
+    "author": "David Mullins"
+  },
+  "defaults": {
+    "lang": "en",
+    "charset": "utf-8",
+    "viewport": "width=device-width, initial-scale=1"
+  }
+}
