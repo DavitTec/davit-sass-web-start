@@ -10,13 +10,14 @@
     "web": "pnpm build:dev; live-server --mount=/:./dist --port=8081 --host=127.0.0.1 --open=index.html --watch=./dist",
     "sass:dev": "sass --watch src/sass/:dist/css/",
     "sass:prod": "sass --style=compressed src/sass/:build/css/",
-    "build:dev": "sh ./scripts/stage.sh",
+    "build:dev": "sh ./scripts/dev.sh",
     "build:prod": "pnpm sass:prod && sh ./scripts/build.sh",
     "clean": "rimraf dist stage build",
     "serve": "live-server --mount=/:./dist --port=8081 --host=127.0.0.1 --open=index.html --watch=./dist --middleware=$(pwd)/middleware/middleware.js --verbose",
     "watch:files": "onchange 'src/**' --exclude 'src/sass/**' -- pnpm build:dev",
     "dev": "pnpm build:dev && concurrently 'pnpm sass:dev' 'pnpm watch:files' 'pnpm serve'",
-    "deploy": "pnpm build:prod && gh-pages -d build"
+    "deploy": "pnpm build:prod && gh-pages -d build",
+    "render": "node scripts/render.js"
   },
   "keywords": [
     "web design",
@@ -29,10 +30,14 @@
   "license": "DAVIT-1.0",
   "packageManager": "pnpm@10.13.1",
   "devDependencies": {
+    "@rse/nunjucks-cli": "^1.6.0",
     "concurrently": "^9.2.1",
+    "dotenv": "^17.2.3",
     "gh-pages": "^6.3.0",
     "live-server": "^1.2.2",
+    "nunjucks": "^3.2.4",
     "onchange": "^7.1.0",
+    "prettier": "^3.7.4",
     "rimraf": "^6.1.2",
     "sass": "^1.96.0"
   }

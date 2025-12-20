@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{{ meta.title }}</title>
+    <meta charset="{{ meta.charset }}">
+    <meta name="viewport" content="{{ meta.viewport }}">
+    {% if meta.metaXYZ %}
+    <meta name="xyz" content="{{ meta.metaXYZ }}">
+    {% endif %}
+
+  </head>
+  <body>
+    <h2>{{ meta.header2 }}</h2>
+  </body>
+</html>

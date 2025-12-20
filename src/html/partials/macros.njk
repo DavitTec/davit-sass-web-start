@@ -1,0 +1,17 @@
+{% macro section(id, content, class='reusable-section') %}
+<section id="{{ id }}" class="{{ class }}">
+  <p>{{ content }}</p>
+</section>
+{% endmacro %}
+
+{% macro button(text, href, class='btn-primary') %}
+<a href="{{ href }}" class="{{ class }}">{{ text }}</a>
+{% endmacro %}
+
+{% macro card(title, image, description) %}
+<div class="card">
+  <img src="{{ image }}" alt="{{ title }}">
+  <h3>{{ title }}</h3>
+  <p>{{ description }}</p>
+</div>
+{% endmacro %}
