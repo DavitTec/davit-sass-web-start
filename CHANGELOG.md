@@ -5,6 +5,16 @@ All notable changes to the ["https://github.com/DavitTec/davit-sass-web-start"](
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)/(_Davit Scheme v0.1.1_)
 
+## [unreleased]
+
+### 🐛 Bug Fixes
+
+Remove deploy.yml (f2b3da2…)
+
+### 🚀 Features
+
+Update to v0.0.5 (33d4936…)
+
 ## [0.0.5] - 2025-12-20 ([v0.0.5](https://github.com/DavitTec/davit-sass-web-start/releases/tag/v0.0.5))
 
 ### 🐛 Bug Fixes
