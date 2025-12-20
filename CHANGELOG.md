@@ -5,7 +5,67 @@ All notable changes to the ["https://github.com/DavitTec/davit-sass-web-start"](
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)/(_Davit Scheme v0.1.1_)
 
-## [unreleased]
+## [0.0.5] - 2025-12-20 ([v0.0.5](https://github.com/DavitTec/davit-sass-web-start/releases/tag/v0.0.5))
+
+### 🐛 Bug Fixes
+
+Add njk components partials layouts (2ffb5c8…)
+
+Move test1 ad test 2 to src/njk (4a28998…)
+
+Add prettier to packages (7ff4c97…)
+
+Changed locations for test1 (1bd784f…)
+
+Modified build:dev with dev.sh script in package.json (3a0f404…)
+
+- add dev.sh: script to build:dev in /dist with render
+- built: modular to replicate current v0.0.4 site in dist/
+- various njk Pages, and Partials
+- add header to main.sass for 0.0.4
+
+### 📚 Documentation
+
+Add new supporting documents (1b41fc6…)
+
+- add: destop-publishing terminology
+- add: Modular-HTML-Structure
+
+Update READE v0.0.4 (6e20cee…)
+
+### 🚀 Features
+
+Install dotenv (490f2e5…)
+
+Add more njk partials components (62d7867…)
+
+Add test3 to scripts (c13d12b…)
+
+Add test2-js more modular with json metadata (1b4733c…)
+
+Add test1.js -template title example (462c7b8…)
+
+Adding ./scripts/test-title.js v0.0.1 (1c9ffd9…)
+
+Add Nunjucks templating with render script, minimal modular HTML structure (partials/macros), tested rendering (4ea604d…)
+
+Update requirements.yaml (5178ba1…)
+
+Add nunjucks (709344d…)
+
+### 🚜 Refactor
+
+Change name of render script (6465ecb…)
+
+Change name of render script (01b2e7e…)
+
+- fix: dev.sh
+
+### 🧪 Testing
+
+Add items to TEST4 (0090a6d…)
+
+## [0.0.4] - 2025-12-18 ([v0.0.4](https://github.com/DavitTec/davit-sass-web-start/releases/tag/v0.0.4))
 
 ### ⚙️ Miscellaneous Tasks
 
@@ -60,6 +120,8 @@ Main.sass v1 (f0bc194…)
 Vscode settings (7fab7d5…)
 
 ### 📚 Documentation
+
+Update Changelog (99fcd55…)
 
 Minor (d062b7b…)
 
