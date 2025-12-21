@@ -1,0 +1,31 @@
+//  Buttons module
+@use "../modules/config" as cfg
+    
+.btn
+  display: inline-flex
+  align-items: center
+  justify-content: center
+  padding: 0.75rem 1.75rem
+  border-radius: 0.4rem
+  text-decoration: none
+  font-weight: 600
+  line-height: 1
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease
+  cursor: pointer
+
+  &:hover
+    transform: translateY(-1px)
+
+  &:active
+    transform: translateY(0)
+
+.btn--primary
+  background-color: cfg.$color-primary
+  color: #fff
+
+  &:hover
+    background-color: cfg.$color-primary-30
+
+.btn--secondary
+  background-color: cfg.$color-secondary
+  color: #fff
