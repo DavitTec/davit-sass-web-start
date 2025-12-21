@@ -7,13 +7,37 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased]
 
+### ⚙️ Miscellaneous Tasks
+
+Remove njk from html folder (2a97170…)
+
+Update render.js to v0.1.0 (3459525…)
+
+- removed tests?.js
+
 ### 🐛 Bug Fixes
+
+Expanded partials and variables (361dc14…)
+
+About with partials (cb6ca4a…)
 
 Remove deploy.yml (f2b3da2…)
 
+### 📚 Documentation
+
+Add Module Commentary Tags docs (b531831…)
+
+Add Modular Project Instructions (41688a5…)
+
 ### 🚀 Features
 
+Stabilize render pipeline with async formatting and modular metadata merge (adc6919…)
+
 Update to v0.0.5 (33d4936…)
+
+### 🧪 Testing
+
+Removed old tests (910dbe6…)
 
 ## [0.0.5] - 2025-12-20 ([v0.0.5](https://github.com/DavitTec/davit-sass-web-start/releases/tag/v0.0.5))
 
