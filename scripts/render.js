@@ -18,6 +18,7 @@ const NJK_DIR = process.env.NJK_DIR; // 👈 all nunjucks sources
 const DATA_DIR = process.env.DATA_DIR; // 👈 content related metadata sources
 const DIST_DIR = process.env.DIST_DIR; // 👈 build destination and mode:DEV|STAGE|BUILD
 const MODE = process.env.MODE; // 👈 build destination and mode:DEV|STAGE|BUILD
+const VERSION = process.env.VERSION; // 👈 Construction version
 
 // Books live here
 const BOOKS_DIR = path.join(NJK_DIR, "pages");
@@ -46,7 +47,7 @@ function loadJSON(filePath) {
 function addBuildComments(html, meta) {
   const banner = `
 <!--
-  BUILD VERSION: 0.0.5
+  BUILD VERSION: ${VERSION ?? "unknown"}
   MODE: ${MODE}
   PAGE: ${meta.title ?? "untitled"}
   GENERATED: ${new Date().toISOString()}
