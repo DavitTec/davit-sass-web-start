@@ -1,24 +1,49 @@
 <!-- § PARTIALS: HEAD -->
   <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-      <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg" />
-      <link rel="shortcut icon" href="assets/favicon/favicon.ico" />
-      <link rel="stylesheet" href="css/main.css">
-      <link
-        rel="icon"
-        type="image/png"
-        href="assets/favicon/favicon-96x96.png"
-        sizes="96x96"
-      />
-      <link
-        rel="apple-touch-icon"
-        sizes="180x180"
-        href="assets/favicon/apple-touch-icon.png"
-      />
-      <script src="https://kit.fontawesome.com/d7f375b5fc.js"></script>
-      <link rel="stylesheet" href="css/main.css" />
+    {# § HEAD: Structural #}
+      <meta charset="{{ meta.defaults.charset }}">
+      <meta name="viewport" content="{{ meta.defaults.viewport }}">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    {# § HEAD: Site identity #}
+      {% if meta.siteMeta %}
+        {% for name, value in meta.siteMeta %}
+        <meta name="{{ name }}" content="{{ value }}">
+        {% endfor %}
+      {% endif %}
+
+    {# § HEAD: Module identity #}
+      {% if meta.description %}
+        <meta name="description" content="{{ meta.description }}">
+      {% endif %}
+      {% if meta.author %}
+        <meta name="author" content="{{ meta.author }}">
+      {% endif %}
+
+
       <title>{{ meta.title }}</title>
-    
+      {% if meta.description  %}
+        <meta name="description" content="{{ meta.description }}" />
+       {% endif %}
+      {% if meta.keywords  %}
+        <meta name="keywords" content="{{ meta.keywords }}" />
+      {% endif %}
+
+      {# § SITE ICONS #}
+        {% if meta.icons %}
+          {% for name, icon in meta.icons %}
+            <!-- § ICON: {{ name }} -->
+            <link
+              rel="{{ icon.rel | default('icon') }}"
+              href="{{ icon.href }}"
+              {% if icon.type %}type="{{ icon.type }}"{% endif %}     
+              {% if icon.sizes is defined and icon.sizes %}sizes="{{ icon.sizes }}"{% endif %}
+            >
+          {% endfor %}
+        {% endif %}
+
+  
+      <link rel="stylesheet" href="css/main.css">
+      <script src="https://kit.fontawesome.com/d7f375b5fc.js"></script>
+   
   </head>

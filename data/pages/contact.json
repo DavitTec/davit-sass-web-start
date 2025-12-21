@@ -1,7 +1,9 @@
 {
   "title": "Davit: Contact us",
+  "author": "David Mullins",
   "meta": "home-only value",
-  "header2": "This is main index TEST3",
+  "description": "Contact DAVIT.ie",
+  "header2": "Contact Us..",
   "bizemail1": "email@davit.in",
   "bizphone1": "+1 (93) 555-5555",
   "bizaddress1": "123 First St. Dun Laoghaire, Dublin"
