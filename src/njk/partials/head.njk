@@ -1,3 +1,49 @@
-   <div class="menu-btn">
-        <span class="menu-btn__burger"></span>
-      </div>
+<!-- § PARTIALS: HEAD -->
+  <head>
+    {# § HEAD: Structural #}
+      <meta charset="{{ meta.defaults.charset }}">
+      <meta name="viewport" content="{{ meta.defaults.viewport }}">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    {# § HEAD: Site identity #}
+      {% if meta.siteMeta %}
+        {% for name, value in meta.siteMeta %}
+        <meta name="{{ name }}" content="{{ value }}">
+        {% endfor %}
+      {% endif %}
+
+    {# § HEAD: Module identity #}
+      {% if meta.description %}
+        <meta name="description" content="{{ meta.description }}">
+      {% endif %}
+      {% if meta.author %}
+        <meta name="author" content="{{ meta.author }}">
+      {% endif %}
+
+
+      <title>{{ meta.title }}</title>
+      {% if meta.description  %}
+        <meta name="description" content="{{ meta.description }}" />
+       {% endif %}
+      {% if meta.keywords  %}
+        <meta name="keywords" content="{{ meta.keywords }}" />
+      {% endif %}
+
+      {# § SITE ICONS #}
+        {% if meta.icons %}
+          {% for name, icon in meta.icons %}
+            <!-- § ICON: {{ name }} -->
+            <link
+              rel="{{ icon.rel | default('icon') }}"
+              href="{{ icon.href }}"
+              {% if icon.type %}type="{{ icon.type }}"{% endif %}     
+              {% if icon.sizes is defined and icon.sizes %}sizes="{{ icon.sizes }}"{% endif %}
+            >
+          {% endfor %}
+        {% endif %}
+
+  
+      <link rel="stylesheet" href="css/main.css">
+      <script src="https://kit.fontawesome.com/d7f375b5fc.js"></script>
+   
+  </head>

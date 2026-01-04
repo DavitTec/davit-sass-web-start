@@ -1,6 +1,6 @@
 {
   "name": "davit-sass-web-start",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A static HTML/CSS/JS boilerplate web design starter template using SASS for styling.",
   "main": "index.js",
   "private": true,

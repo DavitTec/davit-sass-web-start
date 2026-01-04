@@ -3,12 +3,50 @@
     "name": "davit-sass-web-start",
     "domain": "davit"
   },
-  "publisher": {
-    "author": "David Mullins"
-  },
   "defaults": {
     "lang": "en",
     "charset": "utf-8",
     "viewport": "width=device-width, initial-scale=1"
+  },
+  "siteMeta": {
+    "publisher": "DAVIT TECHNOLOGIES"
+  },
+  "icons": {
+    "shortcut_icon": {
+      "rel": "icon",
+      "type": "shortcut icon",
+      "href": "assets/favicon/favicon.ico",
+      "sizes": ""
+    },
+    "faviconsvg": {
+      "rel": "icon",
+      "type": "image/svg+xml",
+      "href": "assets/favicon/favicon.svg",
+      "sizes": ""
+    },
+    "apple_touch_icon": {
+      "rel": "apple-touch-icon",
+      "type": "image/png",
+      "href": "assets/favicon/apple-touch-icon.png",
+      "sizes": "180x180"
+    },
+    "favicon_96": {
+      "rel": "icon",
+      "type": "image/png",
+      "href": "assets/favicon/favicon-96x96.png",
+      "sizes": "96x96"
+    },
+    "web-app-manifest_192": {
+      "rel": "icon",
+      "type": "image/png",
+      "href": "assets/web-app-manifest-192x192.png",
+      "sizes": "192x192"
+    },
+    "web-app-manifest_512": {
+      "rel": "icon",
+      "type": "image/png",
+      "href": "assets/web-app-manifest-512x512.png",
+      "sizes": "512x512"
+    }
   }
 }

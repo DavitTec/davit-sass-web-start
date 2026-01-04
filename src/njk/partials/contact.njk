@@ -1,33 +1,24 @@
       <section class="contact">
-        <h2>Contact Me..</h2>
+        <h2> {{ meta.header2 }}</h2>
 
         <div class="contact__list">
+<!-- § Business Email -->
           <div class="contact__email">
             <i class="fas fa-envelope"></i> Email
-            <div class="text-secondary">email@davit.in</div>
+            <div class="text-secondary"> {{ meta.bizemail1 }}</div>
           </div>
+<!-- § Business Phone -->
           <div class="contact__phone">
             <i class="fas fa-mobile-alt"></i> Phone
-            <div class="text-secondary">+1 (555) 555-5555</div>
+            <div class="text-secondary"> {{ meta.bizphone1 }}</div>
           </div>
+<!-- § Business Address -->
           <div class="contact__address">
             <i class="fas fa-marker-alt"></i> Address
-            <div class="text-secondary">123 First St. Dalkey, Dublin</div>
+            <div class="text-secondary"> {{ meta.bizaddress1 }}</div>
           </div>
         </div>
 
-        <div class="social-icons">
-          <a href="#!">
-            <i class="fab fa-twitter fa-2x"></i>
-          </a>
-          <a href="#!">
-            <i class="fab fa-facebook fa-2x"></i>
-          </a>
-          <a href="#!">
-            <i class="fab fa-instagram fa-2x"></i>
-          </a>
-          <a href="https://davittec.github.io/davit-sass-web-start/">
-            <i class="fab fa-github fa-2x"></i>
-          </a>
-        </div>
+        {% include "components/social-icons.njk" %}
+
       </section>
