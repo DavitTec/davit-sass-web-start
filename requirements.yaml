@@ -1,23 +1,64 @@
 extensions:
-  - timonwong.shellcheck
-  - mads-hartmann.bash-ide-vscode
+ 
+  # TASKS
+  - gruntfuggly.todo-tree
+
+  # THEME
+  - codercoder.codercoder-dark-theme
+
+  # Live Server
+  - ritwickdey.liveserver
+
+  # Formatting
   - esbenp.prettier-vscode
   - dbaeumer.vscode-eslint
-  - christian-kohler.npm-intellisense
-  - eamodio.gitlens
-  - mhutchie.git-graph
-  - rogalmic.bash-debug
-  - gruntfuggly.todo-tree
+  - stylelint.vscode-stylelint
+  - editorconfig.editorconfig
+
+  # Nunjucks / Templates
   - ronnidc.nunjucks
+ # - jinliming2.vscode-nunjucks
+ # - monae.nunjucks
+
+  # JavaScript / TypeScript
+  - ms-vscode.vscode-typescript-next
+  - christian-kohler.path-intellisense
+  - christian-kohler.npm-intellisense
+
+  # Sass / CSS
+  - syler.sass-indented
+  - mrmlnc.vscode-scss
+  - zignd.html-css-class-completion
+
+  # JSON / YAML / Markdown
+  - redhat.vscode-yaml
+ # - keesschollaart.vscode-json-validator
+  - davidanson.vscode-markdownlint
+  - yzhang.markdown-all-in-one
+
+  # Shell / Scripts
+  - timonwong.shellcheck
+  - mads-hartmann.bash-ide-vscode
+  - rogalmic.bash-debug
+
+  # Env / Config
+  - mikestead.dotenv
+
+  # Docs / Design
+  - figma.figma-vscode-extension
   - vstirbu.vscode-mermaid-preview
   - bierner.markdown-mermaid
-  - davidanson.vscode-markdownlint
   - pkief.material-icon-theme
-  - codercoder.codercoder-dark-theme
-  - ritwickdey.liveserver
+
+  # SASS Dev
   - syler.sass-indented
   - jock.svg
   - glenn2223.live-sass
+
+  # Git
+  - eamodio.gitlens
+  - mhutchie.git-graph
+
 settings:
   editor.formatOnSave: true
   prettier.enable: true
