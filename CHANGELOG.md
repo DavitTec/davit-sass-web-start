@@ -5,9 +5,11 @@ All notable changes to the ["https://github.com/DavitTec/davit-sass-web-start"](
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)/(_Davit Scheme v0.1.1_)
 
-## [unreleased]
+## [0.0.7] - 2026-01-04 ([v0.0.7](https://github.com/DavitTec/davit-sass-web-start/releases/tag/v0.0.7))
 
 ### ⚙️ Miscellaneous Tasks
+
+Update to v0.0.6 (0d91ed8…)
 
 Remove njk from html folder (2a97170…)
 
@@ -16,6 +18,10 @@ Update render.js to v0.1.0 (3459525…)
 - removed tests?.js
 
 ### 🐛 Bug Fixes
+
+Update v0.0.7 (ee2a053…)
+
+Requirements (c76cee8…)
 
 Expanded partials and variables (361dc14…)
 
@@ -30,6 +36,11 @@ Add Module Commentary Tags docs (b531831…)
 Add Modular Project Instructions (41688a5…)
 
 ### 🚀 Features
+
+Add new version pump script (7191721…)
+
+- add: version-pump.sh
+- update: render.sh
 
 Stabilize render pipeline with async formatting and modular metadata merge (adc6919…)
 
